@@ -1,0 +1,113 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: $back;
+    color: $text;
+    line-height: 1;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 14px;
+}
+nav, footer, header, aside {
+    display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    display: inline;
+}
+button {
+    cursor: pointer;
+}
+a { 
+    text-decoration: none;
+    color: inherit;
+}
+.header {
+    text-align: center;
+    margin: 2rem 0 2rem 0;
+    .header__title {
+        font-size: 3rem;
+    }
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    .form__input {
+        color: $text;
+        border: 1px solid $text;
+        width: 250px;
+        padding: 0.6rem;
+        margin-right: 1rem;
+        &:focus {
+            box-shadow: 1px 1px 1px $text;
+            outline: none
+        }
+    }
+    .form__input-nonvalid {
+        border: 1px solid red;
+        &::placeholder {
+            color: red;
+        }
+    }
+    .form__button {
+        color: white;
+        background-color: $text;
+        width: 150px;
+        height: 30px;
+        &:hover {
+            background-color:#757164;
+        }
+        &:active {
+            box-shadow: 1px 1px 1px $text;
+            background-color:#9b9684;
+        }
+    }
+}
+.repositories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    .repositories__notfound {
+        color: $text;
+        font-size: 2.5rem;
+    }
+    .repositories__body {
+        padding-right: 2rem;
+        margin: 1rem 0 1rem 0;
+        width: 1100px;
+        height: 200px;
+        background-color: $text;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .repositories__avatar {
+            margin: 0 2rem 0 2rem;
+            width: 150px;
+            height: 150px;
+        }
+        .repositories__info {
+            display: flex;
+            flex-direction: column;
+            height: 150px;
+            
+            .repositories__name {
+                font-size: 3rem;
+            }
+            .repositories__author {
+                margin-top: 1rem;
+            }
+            .repositories__description {
+                margin-top: 1rem;
+            }
+        }
+    }
+}

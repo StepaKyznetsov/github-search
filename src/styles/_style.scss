@@ -69,6 +69,10 @@ a {
             box-shadow: 1px 1px 1px $text;
             background-color:#9b9684;
         }
+        &:focus {
+            box-shadow: 1px 1px 1px $text;
+            outline: none
+        }
     }
 }
 .repositories {
@@ -89,8 +93,11 @@ a {
         display: flex;
         flex-direction: row;
         align-items: center;
+        &:hover {
+            box-shadow: 5px 5px 5px $text;
+        }
         .repositories__avatar {
-            margin: 0 2rem 0 2rem;
+            margin: 0 4rem 0 4rem;
             width: 150px;
             height: 150px;
         }
@@ -100,13 +107,23 @@ a {
             height: 150px;
             
             .repositories__name {
+                width: fit-content;
                 font-size: 3rem;
             }
             .repositories__author {
-                margin-top: 1rem;
+                margin: 1rem 0 1rem 0;
             }
             .repositories__description {
-                margin-top: 1rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -moz-box;
+                display: -webkit-box;
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+            .repositories__language {
+                margin-top: 0.9rem;
             }
         }
     }

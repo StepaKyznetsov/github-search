@@ -1,10 +1,6 @@
 import './index.html';
 import './index.scss';
 
-const form = document.getElementById('form')
-const input = document.getElementById('input')
-const repos = document.getElementById('repos')
-
 form.onsubmit = async (e) => {
     e.preventDefault();
 
@@ -17,12 +13,16 @@ form.onsubmit = async (e) => {
       return
     }
 
-    if (input.placeholder = 'минимальное число символов: 3' && input.classList.contains('form__input-nonvalid')) {
+    if (input.placeholder === 'минимальное число символов: 3' && input.classList.contains('form__input-nonvalid')) {
       input.classList.remove('form__input-nonvalid')
       input.placeholder = 'название репозитория'
     }
   
-    let response = await fetch(`https://api.github.com/search/repositories?q=${input.value}&per_page=10`);
+    let response = await fetch(`https://api.github.com/search/repositories?q=${input.value}&per_page=10`)
+
+    if (response.status !== 200)
+      return repos.innerHTML += "<h2 class = 'repositories__notfound'>Возникли непредвиденные проблемы. Повторите попытку позже</h2>"
+
     let result = await response.json();
 
     if (!result.items.length) return repos.innerHTML += "<h2 class = 'repositories__notfound'>Ничего не найдено</h2>"

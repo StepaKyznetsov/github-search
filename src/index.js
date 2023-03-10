@@ -6,7 +6,7 @@ form.onsubmit = async (e) => {
 
     repos.innerHTML = ''
 
-    if (input.value.length <=2) {
+    if (input.value.trim().length <=2) {
       input.classList.add('form__input-nonvalid')
       input.value = ''
       input.placeholder = 'минимальное число символов: 3'
@@ -18,7 +18,7 @@ form.onsubmit = async (e) => {
       input.placeholder = 'название репозитория'
     }
   
-    let response = await fetch(`https://api.github.com/search/repositories?q=${input.value}&per_page=10`)
+    let response = await fetch(`https://api.github.com/search/repositories?q=${input.value.trim()}&per_page=10`)
 
     if (response.status !== 200)
       return repos.innerHTML += "<h2 class = 'repositories__notfound'>Возникли непредвиденные проблемы. Повторите попытку позже</h2>"

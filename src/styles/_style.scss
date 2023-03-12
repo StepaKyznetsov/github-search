@@ -13,7 +13,7 @@ html, body {
     font-family: "Roboto";
     font-weight: 400;
     font-size: 14px;
-    @media (max-width: 450px) {
+    @media (max-width: 701px) {
         font-size: 12px;
     }
 }
@@ -111,6 +111,9 @@ a {
         }
         @media (max-width: 700px) {
             width: 350px;
+        }
+        @media (max-width: 400px) {
+            width: 250px;
         }
         @media (max-width: 450px) {
             padding-bottom: 1rem;
